@@ -1,0 +1,25 @@
+[tool.poetry]
+name = "audio-my-book"
+version = "0.1.0"
+description = ""
+authors = ["Charl P. Botha <cpbotha@vxlabs.com>"]
+readme = "README.md"
+# need the following because name and package differ wrt - and _
+# https://python-poetry.org/docs/basic-usage/#project-setup
+packages = [{include = "audio_my_book"}]
+
+
+[tool.poetry.dependencies]
+# <3.13 to get numpy installed :(
+python = ">=3.10,<3.13"
+chunkipy = "^0.0.3"
+click = "^8.1.7"
+openai = "^1.6.1"
+
+[tool.poetry.scripts]
+serve_ors = "org_roam_similarity.serve:run"
+embed_ors = "org_roam_similarity.embed:cli"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
